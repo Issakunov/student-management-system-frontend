@@ -18,12 +18,12 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  public login(user: User): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/v1/users/login`, user, {observe: 'response'});
+  public login(user: User): Observable<HttpResponse<User>> {
+    return this.http.post<User>(`${this.host}/api/v1/users/login`, user, {observe: 'response'});
   }
 
-  public register(user: User): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/v1/users/register`, user);
+  public register(user: User): Observable<User> {
+    return this.http.post<User>(`${this.host}/api/v1/users/register`, user);
   }
 
   public logOut(): void {
@@ -39,7 +39,7 @@ export class AuthenticationService {
     localStorage.setItem('token', token);
   }
 
-  public addToLocalCache(user: User): void {
+  public addUserToLocalCache(user: User): void {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
