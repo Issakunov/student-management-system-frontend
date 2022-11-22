@@ -1,7 +1,10 @@
-import { NgModule } from '@angular/core';
-import { NotifierOptions, NotifierModule } from 'angular-notifier';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
 
-const notifierCustomertOptions: NotifierOptions = {
+const notifierCustomOption: NotifierOptions = {
   position: {
     horizontal: {
       position: 'left',
@@ -16,7 +19,7 @@ const notifierCustomertOptions: NotifierOptions = {
   theme: 'material',
   behaviour: {
     autoHide: 5000,
-    onClick: "hide",
+    onClick: 'hide',
     onMouseover: 'pauseAutoHide',
     showDismissButton: true,
     stacking: 4,
@@ -43,7 +46,10 @@ const notifierCustomertOptions: NotifierOptions = {
 };
 
 @NgModule({
-    imports: [NotifierModule.withConfig(notifierCustomertOptions)],
-    exports: [NotifierModule]
+  imports: [BrowserModule, FormsModule, NotifierModule.withConfig(notifierCustomOption)],
+  bootstrap: [AppComponent],
+  exports: [NotifierModule],
+
+
 })
 export class NotificationModule {}
