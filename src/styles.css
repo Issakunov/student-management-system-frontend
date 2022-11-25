@@ -5,6 +5,10 @@
 td {
     cursor: pointer;
 }
+.float-right {
+    display: flex; 
+    flex-direction: row-reverse;
+}
 .move-right {
     position: absolute;
     right: 0;

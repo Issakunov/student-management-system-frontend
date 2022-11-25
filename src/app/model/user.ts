@@ -10,7 +10,7 @@ public loginDateDisplay!: Date;
 public joinDate!: Date;
 public profileImageUrl!: string;
 public enabled: boolean;
-public isNotLocked: boolean;
+public notLocked: boolean;
 public role: string;
 public authorities: [];
 
@@ -20,7 +20,7 @@ constructor() {
     this.username = '';
     this.email = '';
     this.enabled = false;
-    this.isNotLocked = false;
+    this.notLocked = false;
     this.role = '';
     this.authorities = [];
 }
