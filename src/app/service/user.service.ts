@@ -30,7 +30,7 @@ export class UserService {
     return this.http.get<CustomeHttpResponse>(`${this.host}/api/v1/users/reset-password/${email}`);
   }
 
-  public updateProfileImage(formData: FormData): Observable<HttpEvent<any> | HttpErrorResponse> {
+  public updateProfileImage(formData: FormData): Observable<HttpEvent<any>> {
     return this.http.post<User>(`${this.host}/api/v1/users/update-profile-image`, formData, {reportProgress: true, observe: 'events'});
   }
 
@@ -48,13 +48,8 @@ export class UserService {
     }
     return null as any;
   }
-  public createUserFormData(loggedInUsername: any, user: User, profileImage: any): FormData {
+  public createUserFormData(loggedInUsername: string, user: User, profileImage: any): FormData {
     const formData = new FormData();
-    console.log('notLocked');
-    console.log(user.notLocked);
-    console.log('-----------------');
-    console.log('enabled');
-    console.log(user.enabled);
     formData.append('currentUsername', loggedInUsername);
     formData.append('username', user.username);
     formData.append('firstName', user.firstName);

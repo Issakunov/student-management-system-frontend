@@ -7,6 +7,7 @@ public lastName: string;
 public username: string;
 public email: string;
 public loginDateDisplay!: Date;
+public lastLoginDateDisplay?: Date;
 public joinDate!: Date;
 public profileImageUrl!: string;
 public enabled: boolean;
