@@ -1,6 +1,5 @@
 export class User {
 
-public id!: number;
 public userId!: string;
 public firstName: string;
 public lastName: string;
@@ -16,10 +15,12 @@ public role: string;
 public authorities: [];
 
 constructor() {
+    this.userId = '';
     this.firstName = '';
     this.lastName = '';
     this.username = '';
     this.email = '';
+    this.profileImageUrl = '';
     this.enabled = false;
     this.notLocked = false;
     this.role = '';
